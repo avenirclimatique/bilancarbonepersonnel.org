@@ -1,0 +1,30 @@
+
+
+- Page saisie courriel création compte
+-- on envoie par post : le courriel
+
+- Page saisie courriel identification
+- on envoie par post : le courriel
+
+- Page traitement saisie courriel création compte
+-- courriel invalide (chaîne pas de type courriel)
+-- serveur n'accepte pas les courriels
+-- courriel existe déjà dans la base de données : en ce cas avertir l'utilisateur, et lui proposer de saisir son mot de passe ou de lui envoyer un nouveau mot de passe
+-- courriel valide et nouveau : on enregistre le courriel dans util_courriel, on crée un mot de passe, on l'envoie par courriel, on enregistre ce mot de passe dans util_pass_prov, on propose un champ mot de passe
+-- on envoie par post : le mot de passe, $util_id
+
+- Page traitement courriel identification
+-- on teste si le courriel existe dans la base, s'il n'existe pas on avertit l'utilisateur, on lui propose de saisir à nouveau son courriel, on lui explique que s'il se confirme que le courriel n'existe pas il peut toujours créer un compte avec (en lui proposant un lien)
+-- on teste si le courriel existe dans l'ancienne bdd (APRES)
+-- si le courriel existe, on récupère $util_id, on propose un champ mot de passe
+-- on envoie par post : le mot de passe, $util_id
+
+- Traitement saisie mot de passe en début de fichier index.php : 
+-- on récupère par POST $util_id et le mot de passe, on teste la validité du mot de passe, s'il est valide on affecte la variable de session
+
+
+- Page traitement saisie mot de passe création compte
+
+
+
+- Page traitement saisie mot de passe identification

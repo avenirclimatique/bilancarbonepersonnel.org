@@ -1,0 +1,456 @@
+diff -ru BCP_dev_derniere_version.old/inc_affichage_resultat/fonctions_bas_niveau_affichage_resultats.php BCP_dev_derniere_version/inc_affichage_resultat/fonctions_bas_niveau_affichage_resultats.php
+--- BCP_dev_derniere_version.old/inc_affichage_resultat/fonctions_bas_niveau_affichage_resultats.php	2008-03-23 17:39:33.000000000 +0100
++++ BCP_dev_derniere_version/inc_affichage_resultat/fonctions_bas_niveau_affichage_resultats.php	2008-03-24 08:03:49.000000000 +0100
+@@ -20,7 +20,7 @@
+ 	$nom [CHAUFFAGE] = 'Chauffage' ; 
+ 	$nom [ECS] = 'Eau chaude sanitaire' ; 
+ 	$nom [CUISSON] = 'Cuisson des aliments' ; 
+-	$nom [ELECTRICITE_AUTRE] = 'Electricité hors chauffage, eau chaude sanitaire, cuisson des aliments, et électricité des parties communes' ; 
++	$nom [ELECTRICITE_AUTRE] = 'Electricité : autres' ; 
+ 	// il faudrait distinguer suivant que logement collectif ou individuel, ne parler de parties communes que si logement collectif
+ 	return $nom ; 
+ }
+diff -ru BCP_dev_derniere_version.old/pdf/pdfisation.php BCP_dev_derniere_version/pdf/pdfisation.php
+--- BCP_dev_derniere_version.old/pdf/pdfisation.php	2008-03-23 17:39:33.000000000 +0100
++++ BCP_dev_derniere_version/pdf/pdfisation.php	2008-03-24 08:09:46.000000000 +0100
+@@ -307,32 +307,110 @@
+ 	}
+ 
+ 	//  ======================================================================== 
+-	// DETAIL TODO POUR VERSION COMPLETE AVEC QUESTIONNAIRE ET REPONSES
++	// AUXILIAIRE EXPORT DETAILLE : SELECTION DE STYLE
+ 	//  ======================================================================== 
+-	/*function affiche_repartition_detaillee ( $resultat )
++	function change_style ( $categorie, $style )
+ 	{
++	  if ($style == 'normal')
++	    {
++	      $this->SetTextColor(0);
++	      $this->SetDrawColor(255,255,255);
++	      $this->SetLineWidth(.3);
++	      $this->SetFont('','');
++	    }
++	  else
++	    {
++	      $this->SetTextColor(0);
++	      $this->SetDrawColor(255,255,255);
++	      $this->SetLineWidth(.3);
++	      $this->SetFont('','B');
++	    }
++	  
++	  if ($categorie == LOGEMENT)
++	    {
++	      if ($style == 'normal')
++		{
++		  $this->SetFillColor(221,255,255);
++		}
++	      else
++		{
++		  $this->SetFillColor(170,221,221);
++		}
++	    }
++	  else if ($categorie == TRANSPORT)
++	    {
++	      if ($style == 'normal')
++		{
++		  $this->SetFillColor(255,204,255);
++		}
++	      else
++		{
++		  $this->SetFillColor(221,170,221);
++		}
++	    }
++	  else if ($categorie == ALIMENTATION)
++	    {
++	      if ($style == 'normal')
++		{
++		  $this->SetFillColor(255,255,204);
++		}
++	      else
++		{
++		  $this->SetFillColor(221,221,170);
++		}
++	    }
++	  else if ($categorie == CONSOMMATION)
++	    {
++	      if ($style == 'normal')
++		{
++		  $this->SetFillColor(238,238,238);
++		}
++	      else
++		{
++		  $this->SetFillColor(204,204,204);
++		}
++	    }
++	}
++
++	//  ======================================================================== 
++	// AUXILIAIRE EXPORT DETAILLE : AFFICHAGE D'UNE LIGNE
++	//  ======================================================================== 
++	function affiche_ligne_pdf ( $premiere, $categorie, $style, $intitule, $resultat )
++	{
++	  if ($premiere == 'pas_1ere')
++	    $this->Cell(30,4);
++	  $this->change_style($categorie, $style);
++	  $this->Cell(90,4,$intitule,1,0,'C',1);
++	  $this->Cell(35,4,number_format($resultat[EMISSION], 1, ',', ' '),1,0,'R',1);
++	  $this->Cell(35,4,round($resultat[INCERTITUDE] * 100),1,0,'C',1);
++	  $this->Ln();
++	}
++
++	//  ======================================================================== 
++	// DETAIL POUR VERSION COMPLETE AVEC QUESTIONNAIRE ET REPONSES
++	//  ======================================================================== 
++	function affiche_repartition_detaillee ( $resultat )
++	{
++	  require_once('../inc_donnee_calcul/fonctions_calcul_logement_nomenclature.php');
++	  require_once('../inc_donnee_calcul/fonctions_calcul_logement_energie.php');
++
+ 		// Police Helvetica, 16
+ 		$this->SetFont('helvetica','',16);
+ 		// Détail de la répartition de vos émissions
+ 		$this->Cell(0,10,'Détail de la répartition de vos émissions',0,1);
+-		// On change la couleur : en rouge !
+-		$this->SetTextColor(255, 0, 0);
+-		// Police Helvetica, 10
+-		$this->SetFont('helvetica','b',10);
++		// Police Helvetica, 8
++		$this->SetFont('helvetica','b',8);
+ 		// Si les saisies sont incomplètes on met en garde (une seconde fois) l'utilisateur
+ 		if ( in_array ( false , $_SESSION[PAGE_COMPLETE] ) )
+-			$this->MultiCell(0,5,'(attention : saisie incomplète)');
++		  {
++		    // On change la couleur : en rouge !
++		    $this->SetTextColor(255, 0, 0);
++		    $this->MultiCell(0,5,'(attention : saisie incomplète)');
++		  }
+ 		// On change la couleur : en noir !
+ 		$this->SetTextColor(0);
+ 
+-		echo"<h2>Détail de la répartition de vos émissions</h2>\n\n" ; 
+-		//
+-		// mise en garde si saisie pas complete
+-		if ( in_array ( false , $_SESSION[PAGE_COMPLETE] ) )
+-			echo "<p><strong class='mise_en_garde_acces_resultat'>" 
+-				. "(attention&nbsp;: saisie incomplète)</strong></p>\n\n" ; 
+-		//
+-		/*	$liste_usage = liste_usage () ; 
++		/*$liste_usage = liste_usage () ;
+ 			
+ 			print_r ( $liste_usage ) ; 
+ 			$utilise_energie = utilise_energie ( 'electricite' , $type_usage ) ; 
+@@ -347,17 +425,26 @@
+ 					. "</li>\n" ;
+ 				}
+ 			}
+-			echo "</ul>\n" ; 
++			echo "</ul>\n" ;
++		*/
+ 		
+-
+-		echo "<table class='res_detail'> \n\n"
+-			. "<tr class= 'toutes_categories' >\n<td class='vide' ></td><td class='vide'></td><td>Emissions en kg equ. C</td><td>Incertitude en %</td>\n</tr> \n\n" ; 
++		// Couleurs, épaisseur du trait et police grasse
++		// Couleur TITRES COLONNES
++		$this->SetFillColor(51,102,153);
++		$this->SetTextColor(255);
++		$this->SetDrawColor(255,255,255);
++		$this->SetLineWidth(.3);
++		$this->SetFont('','B');
++		// Affichage TITRES COLONNES
++		$this->Cell(120,6,'',0,0,'L',0);
++		$this->Cell(35,6,'Emissions en kg equ. C',1,0,'C',1);
++		$this->Cell(35,6,'Incertitude en %',1,0,'C',1);
++		$this->Ln();
+ 		
+ 		// ==============================================================================================================================
+ 		// LOGEMENT
+ 		// ==============================================================================================================================
+-		$categorie = LOGEMENT ; 
+-		echo "\n<!-- début logement  -->\n" ; 
++		$categorie = LOGEMENT ;
+ 		for( $i=1 ; $i <= $_SESSION[MENU_NOMBRE][LOGEMENT] ; $i+=1 )
+ 		{
+ 			// détermination du nombre de lignes
+@@ -373,45 +460,48 @@
+ 			$type_logement = type_logement ( $i ) ; //  la fonction se trouve dans /inc_donnee_calcul/fonctions_calcul_logement_energie 		
+ 			if ( $type_logement == 'collectif' )
+ 				$nombre_lignes ++ ;
+-			echo "<tr class='logement'><td rowspan='" . $nombre_lignes . "' class='categorie' >Logement " . $i . "</td>\n\n" ; 
++			$this->change_style($categorie, 'total');
++			$this->Cell(30,$nombre_lignes*4,'Logement '.$i,1,0,'C',1); 
+ 			// Emissions par type d'énergie
+-			echo "<td class = 'intitule_sous_total' colspan='3' >Consommation d'énergie&nbsp;: émissions par type d'énergie</td></tr>\n\n" ; 
+-			//affiche_ligne ( $categorie , 'Consommation d\'énergie&nbsp;: émissions par type d\'énergie' , '' , 'sous_total' ) ; 
++			$this->change_style($categorie, 'sous_total');
++			$this->Cell(160,4,'Consommation d\'énergie : émissions par type d\'énergie',1,0,'C',1);
++			$this->Ln();
+ 			foreach ( $liste_energie as $energie )
+ 				// on conditionne par le fait que l'énergie est effectivement utilisée par un des quatre usages possibles : chauffage, ecs, cuisson, autre
+ 				if ( affiche_energie ( $energie , $tableau_energies_des_usages ) == true )
+ 				{
+ 					$index = 'emissions_' . $energie . '_' . $i ; 
+-					affiche_ligne ( 'pas_1ere' , $categorie , 'normal' , $nom_energie [$energie] , $resultat[LOGEMENT . '_' . $i][$energie] ) ; 
++					$this->affiche_ligne_pdf ( 'pas_1ere' , $categorie , 'normal' , $nom_energie [$energie] , $resultat[LOGEMENT . '_' . $i][$energie] ) ; 
+ 				}
+ 			// 
+ 			// Emissions par type d'usage
+-			echo "<tr class='logement'>\n<td class='intitule_sous_total' colspan='3' >Consommation d'énergie&nbsp;: émissions par type d'usage</td>\n</tr>\n" ; 
++			$this->change_style($categorie, 'sous_total');
++			$this->Cell(30,4);
++			$this->Cell(160,4,'Consommation d\'énergie : émissions par type d\'usage',1,0,'C',1);
++			$this->Ln();
+ 
+ 			$liste_usage = liste_usage () ; 
+ 			$nom_usage = nom_usage () ; 
+ 			foreach ( $liste_usage as $usage )
+-				affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , $nom_usage [$usage] , $resultat[LOGEMENT . '_' . $i][$usage] ) ; 
++				$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , $nom_usage [$usage] , $resultat[LOGEMENT . '_' . $i][$usage] ) ; 
+ 			//
+ 			if ( $type_logement == 'collectif' )
+-				affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Electricité des parties communes' , $resultat[LOGEMENT . '_' . $i][ENERGIE_PARTIE_COMMUNE] ) ; 
++				$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Electricité des parties communes' , $resultat[LOGEMENT . '_' . $i][ENERGIE_PARTIE_COMMUNE] ) ; 
+ 			//
+ 			// Total des émissions dues aux consommations d'énergie
+-			affiche_ligne 
+-				( 'pas_1ere' ,  $categorie , 'sous_total' , 'Consommation d\'énergie&nbsp;: total des émissions' , 
++			$this->affiche_ligne_pdf( 'pas_1ere' ,  $categorie , 'sous_total' , 'Consommation d\'énergie : total des émissions' , 
+ 					$resultat[LOGEMENT . '_' . $i][TOTAL_ENERGIE_LOGEMENT] ) ; 
+ 			// 
+ 			// Emissions du logement hors conso d'énergie
+-			affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Gros électroménager' , $resultat[LOGEMENT . '_' . $i][GROS_ELECTROMENAGER] ) ; 
+-			affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Meubles' , $resultat[LOGEMENT . '_' . $i][MEUBLE] ) ; 
+-			affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Fournitures travaux' , $resultat[LOGEMENT . '_' . $i][TRAVAUX] ) ; 
+-			affiche_ligne ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total équipement et travaux du logement' , 
++			$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Gros électroménager' , $resultat[LOGEMENT . '_' . $i][GROS_ELECTROMENAGER] ) ; 
++			$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Meubles' , $resultat[LOGEMENT . '_' . $i][MEUBLE] ) ; 
++			$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Fournitures travaux' , $resultat[LOGEMENT . '_' . $i][TRAVAUX] ) ; 
++			$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total équipement et travaux du logement' , 
+ 				$resultat[LOGEMENT . '_' . $i][TOTAL_EQUIPEMENT_TRAVAUX] ) ; 
+-			affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Construction' , $resultat[LOGEMENT . '_' . $i][CONSTRUCTION] ) ; 
++			$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Construction' , $resultat[LOGEMENT . '_' . $i][CONSTRUCTION] ) ; 
+ 			$intitule = 'Total logement ' . $i ; 
+-			affiche_ligne ( 'pas_1ere' ,  $categorie , 'total' , $intitule , $resultat[LOGEMENT . '_' . $i][TOTAL_LOGEMENT] ) ; 
+-		} // fin de la boucle qui parcourt les différents logements 
+-		echo "\n<!-- fin logement -->\n" ; 
++			$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'total' , $intitule , $resultat[LOGEMENT . '_' . $i][TOTAL_LOGEMENT] ) ; 
++		} // fin de la boucle qui parcourt les différents logements
+ 		
+ 		// ==============================================================================================================================
+ 		// TRANSPORTS
+@@ -424,9 +514,8 @@
+ 
+ 		$nombre_lignes = $nombre_voiture + $nombre_deux_roues + $nombre_vol_avion + 8 ; 
+ 
+-		echo "\n<!-- début transport -->\n" ; 
+-		echo "\n<tr class='transport' >\n<td rowspan='". $nombre_lignes . "' class='categorie' >Transports</td>\n
+-			\n" ; 
++		$this->change_style($categorie, 'total');
++		$this->Cell(30,$nombre_lignes*4,'Transports',1,0,'C',1);
+ 
+ 		// ==============================
+ 		// Voitures
+@@ -435,137 +524,135 @@
+ 		{
+ 			$intitule = "Voiture " . $i ; 
+ 			if ( $i == 1 ) 
+-				affiche_ligne ( '1ere' , $categorie , 'normal' , $intitule , $resultat[TRANSPORT][VOITURE . '_' . $i] ) ; 
++				$this->affiche_ligne_pdf ( '1ere' , $categorie , 'normal' , $intitule , $resultat[TRANSPORT][VOITURE . '_' . $i] ) ; 
+ 			else
+-				affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , $intitule , $resultat[TRANSPORT][VOITURE . '_' . $i] ) ; 
++				$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , $intitule , $resultat[TRANSPORT][VOITURE . '_' . $i] ) ; 
+ 		}
+ 		if ( $nombre_voiture == 0 )
+ 			$ordre = '1ere' ; 
+ 		else
+ 			$ordre = 'pas_1ere' ; 
+-		affiche_ligne ( $ordre ,  $categorie , 'sous_total' , 'Total voiture(s)' , $resultat[TRANSPORT][TOTAL_VOITURE] ) ; 
++		$this->affiche_ligne_pdf ( $ordre ,  $categorie , 'sous_total' , 'Total voiture(s)' , $resultat[TRANSPORT][TOTAL_VOITURE] ) ; 
+ 		// ==============================
+ 		// Deux-roues
+ 		// ==============================	
+ 		for ( $i= 1 ; $i <= $nombre_deux_roues ; $i++ )
+ 		{
+ 			$intitule = "Deux-roues " . $i ; 
+-			affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , $intitule , $resultat[TRANSPORT][DEUX_ROUES . '_' . $i] ) ; 
++			$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , $intitule , $resultat[TRANSPORT][DEUX_ROUES . '_' . $i] ) ; 
+ 		}
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total deux-roues' , $resultat[TRANSPORT][TOTAL_DEUX_ROUES] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total deux-roues' , $resultat[TRANSPORT][TOTAL_DEUX_ROUES] ) ; 
+ 		// ==============================
+ 		// Vols en avion
+ 		// ==============================	
+ 		for ( $i= 1 ; $i <= $nombre_vol_avion ; $i++ )
+ 		{
+ 			$intitule = "Vol(s) en avion " . $i ; 
+-			affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , $intitule , $resultat[TRANSPORT][VOL_AVION . '_' . $i] ) ; 
++			$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , $intitule , $resultat[TRANSPORT][VOL_AVION . '_' . $i] ) ; 
+ 		}
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total vol(s) en avion' , $resultat[TRANSPORT][TOTAL_VOL_AVION] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total vol(s) en avion' , $resultat[TRANSPORT][TOTAL_VOL_AVION] ) ; 
+ 		// ==============================
+ 		// Transports en commun
+ 		// ==============================	
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Train' , $resultat[TRANSPORT][TRAIN] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Transports en commun de proximité à propulsion non électrique' , 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Train' , $resultat[TRANSPORT][TRAIN] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Transports en commun de proximité à propulsion non électrique' , 
+ 			$resultat[TRANSPORT][COLLECTIF_NON_ELECTRIQUE] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Transports en commun de proximité à propulsion électrique' , 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Transports en commun de proximité à propulsion électrique' , 
+ 			$resultat[TRANSPORT][COLLECTIF_ELECTRIQUE] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total transports en commun hors vols en avion' , 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total transports en commun hors vols en avion' , 
+ 			$resultat[TRANSPORT][TOTAL_TRANSPORT_COMMUN]  ) ; 
+ 		// ==============================
+ 		// Total
+ 		// ==============================	
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'total' , 'Total transports' , $resultat[TRANSPORT][TOTAL_TRANSPORT] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'total' , 'Total transports' , $resultat[TRANSPORT][TOTAL_TRANSPORT] ) ; 
+ 		//
+-		echo "\n<!-- fin transport -->\n" ; 
++		
+ 		// ==============================================================================================================================
+ 		// ALIMENTATION
+ 		// ==============================================================================================================================
+ 
+ 		$categorie = ALIMENTATION ; 
+-		echo "\n<!-- début alimentation -->\n" ; 
+-
+-		echo "\n<tr class= 'alimentation'>\n<td rowspan='18' class='categorie' >Alimentation</td>\n\n" ; 
++		
++		$this->change_style($categorie, 'total');
++		$this->Cell(30,18*4,'Alimentation',1,0,'C',1);
+ 
+ 		// ==============================
+ 		// Viande et poisson
+ 		// ==============================	
+-		affiche_ligne ( '1ere' , $categorie , 'normal' , 'Viande rouge' , $resultat[ALIMENTATION][VIANDE_ROUGE] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Viande de porc' , $resultat[ALIMENTATION][VIANDE_PORC] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Volaille' , $resultat[ALIMENTATION][VIANDE_BLANCHE] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Poisson' , $resultat[ALIMENTATION][POISSON] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total viande et poisson' , $resultat[ALIMENTATION][TOTAL_VIANDE_POISSON]  ) ; 
++		$this->affiche_ligne_pdf ( '1ere' , $categorie , 'normal' , 'Viande rouge' , $resultat[ALIMENTATION][VIANDE_ROUGE] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Viande de porc' , $resultat[ALIMENTATION][VIANDE_PORC] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Volaille' , $resultat[ALIMENTATION][VIANDE_BLANCHE] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Poisson' , $resultat[ALIMENTATION][POISSON] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total viande et poisson' , $resultat[ALIMENTATION][TOTAL_VIANDE_POISSON] ) ; 
+ 		// ==============================
+ 		// Produits laitiers
+ 		// ==============================		
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Fromage et beurre' , $resultat[ALIMENTATION][FROMAGE] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Laitages' , $resultat[ALIMENTATION][LAITAGE] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Lait' , $resultat[ALIMENTATION][LAIT] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total produits laitiers' , $resultat[ALIMENTATION][TOTAL_LAITAGE]  ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Fromage et beurre' , $resultat[ALIMENTATION][FROMAGE] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Laitages' , $resultat[ALIMENTATION][LAITAGE] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Lait' , $resultat[ALIMENTATION][LAIT] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total produits laitiers' , $resultat[ALIMENTATION][TOTAL_LAITAGE]  ) ; 
+ 		// ==============================
+ 		// Fruits et légumes
+ 		// ==============================	
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Fruits et légumes de saison' , $resultat[ALIMENTATION][FRUIT_LEGUME_SAISON] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Fruits et légumes hors saison' , $resultat[ALIMENTATION][FRUIT_LEGUME_HORS_SAISON] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Fruits et légumes tropicaux' , $resultat[ALIMENTATION][FRUIT_LEGUME_TROPICAL] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total fruits et légumes' , $resultat[ALIMENTATION][TOTAL_FRUIT_LEGUME]  ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Fruits et légumes de saison' , $resultat[ALIMENTATION][FRUIT_LEGUME_SAISON] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Fruits et légumes hors saison' , $resultat[ALIMENTATION][FRUIT_LEGUME_HORS_SAISON] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Fruits et légumes tropicaux' , $resultat[ALIMENTATION][FRUIT_LEGUME_TROPICAL] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total fruits et légumes' , $resultat[ALIMENTATION][TOTAL_FRUIT_LEGUME]  ) ; 
+ 		// ==============================
+ 		// Boissons
+ 		// ==============================	
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Eau en bouteille' , $resultat[ALIMENTATION][EAU] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Alcool' , $resultat[ALIMENTATION][ALCOOL] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total boissons' , $resultat[ALIMENTATION][TOTAL_BOISSON]  ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Eau en bouteille' , $resultat[ALIMENTATION][EAU] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Alcool' , $resultat[ALIMENTATION][ALCOOL] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total boissons' , $resultat[ALIMENTATION][TOTAL_BOISSON]  ) ; 
+ 		// ==============================
+ 		// Autre denrées
+ 		// ==============================	
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Autres denrées alimentaires' , $resultat[ALIMENTATION][AUTRE_ALIMENTATION] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Autres denrées alimentaires' , $resultat[ALIMENTATION][AUTRE_ALIMENTATION] ) ; 
+ 		// ==============================
+ 		// Total alimentation
+ 		// ==============================	
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'total' , 'Total alimentation' , $resultat[ALIMENTATION][TOTAL_ALIMENTATION] ) ; 
+-		echo "\n<!-- fin alimentation -->\n" ; 
+-
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'total' , 'Total alimentation' , $resultat[ALIMENTATION][TOTAL_ALIMENTATION] ) ; 
++		
+ 		// ==============================================================================================================================
+ 		// CONSOMMATION
+ 		// ==============================================================================================================================
+ 
+ 		$categorie = CONSOMMATION ;
+-		echo "\n<!-- début consommation -->\n" ; 
++		
++		$this->change_style($categorie, 'total');
++		$this->Cell(30,17*4,'Consommation',1,0,'C',1);
+ 
+-		echo "\n<tr class='consommation'>\n<td rowspan='17' class='categorie' >Consommation</td>\n\n" ; 
+ 		// ==============================
+ 		// Chaussures et vêtements
+ 		// ==============================	
+-		affiche_ligne ( '1ere' , $categorie , 'normal' , 'Chaussures' , $resultat[CONSOMMATION][CHAUSSURE] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Vêtements hors chaussures' , $resultat[CONSOMMATION][HABILLEMENT_HORS_CHAUSSURE] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total vêtements (y compris chaussures)' , $resultat[CONSOMMATION][TOTAL_HABILLEMENT]  ) ; 
++		$this->affiche_ligne_pdf ( '1ere' , $categorie , 'normal' , 'Chaussures' , $resultat[CONSOMMATION][CHAUSSURE] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Vêtements hors chaussures' , $resultat[CONSOMMATION][HABILLEMENT_HORS_CHAUSSURE] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total vêtements (y compris chaussures)' , $resultat[CONSOMMATION][TOTAL_HABILLEMENT]  ) ; 
+ 		// ==============================
+ 		// Vie quotidienne
+ 		// ==============================	
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Télévisions ordinateurs écrans plats' , $resultat[CONSOMMATION][TELE_ORDI] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Petit informatique' , $resultat[CONSOMMATION][PETIT_INFO] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Petits consommables' , $resultat[CONSOMMATION][PETIT_CONSO] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Assurance - mutuelle' , $resultat[CONSOMMATION][ASSU_MUT] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Téléphonie' , $resultat[CONSOMMATION][TELEPHONIE] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Employés de maison' , $resultat[CONSOMMATION][EMPLOYE] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Animaux de compagnie' , $resultat[CONSOMMATION][ANIMAUX] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Déchets' , $resultat[CONSOMMATION][DECHET] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total vie quotidienne' , $resultat[CONSOMMATION][TOTAL_VIE_QUOTIDIENNE] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Télévisions ordinateurs écrans plats' , $resultat[CONSOMMATION][TELE_ORDI] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Petit informatique' , $resultat[CONSOMMATION][PETIT_INFO] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Petits consommables' , $resultat[CONSOMMATION][PETIT_CONSO] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Assurance - mutuelle' , $resultat[CONSOMMATION][ASSU_MUT] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Téléphonie' , $resultat[CONSOMMATION][TELEPHONIE] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Employés de maison' , $resultat[CONSOMMATION][EMPLOYE] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Animaux de compagnie' , $resultat[CONSOMMATION][ANIMAUX] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Déchets' , $resultat[CONSOMMATION][DECHET] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total vie quotidienne' , $resultat[CONSOMMATION][TOTAL_VIE_QUOTIDIENNE] ) ; 
+ 		// ==============================
+ 		// Loisirs
+ 		// ==============================	
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , "Sports d'hiver" , $resultat[CONSOMMATION][SPORTS_HIVER] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Locations de logements de vacances' , $resultat[CONSOMMATION][LOCATION] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'normal' , 'Bateaux, camping-cars, caravannes' , $resultat[CONSOMMATION][BATEAU_ETC] ) ; 
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total Loisirs' , $resultat[CONSOMMATION][TOTAL_LOISIR]  ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , "Sports d'hiver" , $resultat[CONSOMMATION][SPORTS_HIVER] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Locations de logements de vacances' , $resultat[CONSOMMATION][LOCATION] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'normal' , 'Bateaux, camping-cars, caravannes' , $resultat[CONSOMMATION][BATEAU_ETC] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'sous_total' , 'Total Loisirs' , $resultat[CONSOMMATION][TOTAL_LOISIR]  ) ; 
+ 		// ==============================
+ 		// Total consommation
+ 		// ==============================	
+-		affiche_ligne ( 'pas_1ere' ,  $categorie , 'total' , 'Total Consommation' , $resultat[CONSOMMATION][TOTAL_CONSOMMATION] ) ; 
++		$this->affiche_ligne_pdf ( 'pas_1ere' ,  $categorie , 'total' , 'Total Consommation' , $resultat[CONSOMMATION][TOTAL_CONSOMMATION] ) ; 
+ 		// ==========================	
+-		echo "\n<!-- fin consommation -->\n" ; 
+-		echo "\n</table>\n\n" ; 
+-	}*/
++		}
+ 
+ 	//  ======================================================================== 
+ 	// NOTES DE BAS DE PAGE
+@@ -616,7 +703,8 @@
+ 	$pdf->affiche_repartition_grossiere( $resultat );
+ 
+ 	// --- DETAIL DE LA REPARTITION DE VOS EMISSIONS ---
+-	// TODO ICI TABLEAU POUR VERSION COMPLETE AVEC QUESTIONNAIRE ET REPONSES
++	$pdf->affiche_repartition_detaillee( $resultat );
++	$pdf->Ln(3);
+ 
+ 	// --- NOTES DE BAS DE PAGE ---
+ 	$pdf->affiche_notes_bas_de_page();
