@@ -1,0 +1,1177 @@
+/*=============  generalités  ============ */
+* {
+	font-family: helvetica, arial, sans-serif;
+}
+
+.separateur {
+   clear: both;
+}
+
+.separateur_droit {
+  clear: right;
+}
+
+body {
+
+}
+
+#contour {
+	border-left: 3px solid #336699;
+	border-right: 3px solid #336699;
+	background-color:	#FDFFEF; 
+}
+
+table tr.unite td.vide {
+	background-color : #FDFFEF; 
+}
+/* c'est la couleur des cases de la table de résultat dont on ne veut pas qu'elles se voient
+donc même couleur que le fond */
+
+
+/*=============  lien d'évitement ============ */
+#menu_evitement_non_voyants, .acces_menu_non_voyants {
+	display: none; 
+}
+
+/*=============  titre ============ */
+#titre {
+	padding: 0px 10px 0px 0px; 
+	background-color: #336699;
+	color: #eeeeee; 
+	margin: 0px; 
+	/*border: 1px solid #336699;
+	border: 1px solid yellow ; */
+}
+
+#titre h1 {
+	font-size: 160%;
+	margin: 0px ; 
+	padding: 5px 0px 0px 10px;
+}
+
+#titre p {
+	font-size: 70%;
+	margin: 2px 0px; 
+	padding: 0px 0px 0px 10px ; 
+}
+
+#titre a {
+	display: block ; 
+	float: right;
+	margin: 0px 10px 0px 10px; 
+	padding: 5px 0px 5px 0px; 
+	text-decoration: none; 
+	text-align: center;
+}
+
+#titre a:hover .nom {
+	color: yellow; 
+}
+
+#titre a img {
+	padding: 0px 0px; 
+	border: none;
+	text-align: center;
+	margin: 0px; 
+}
+
+#titre a .nom {
+	font-size: 70% ; 
+	margin: 0px; 
+	padding: 0px; 
+	color: white; 
+	text-decoration: underline; 
+	display: block ; 
+	text-align: center;
+}
+
+
+/* =========== fin de la boite titre ================== */
+
+/*=============  Menu  ======================= */
+#menu_hors_questionnaire {
+	margin: 0px; 
+	padding: 7px 10px ; 
+	border-bottom: 1px solid #bbbbbb; 
+	background-color: #f5f5f5; 
+}
+/*=============  Menu général ======================= */
+#menu_general {
+	font-size: 80% ; 
+	margin: 0px ; 
+	padding: 0px ; 
+	float: left ; 
+	/*clear: left; */
+	font-weight: bold; 
+	/*border: 1px solid yellow; */
+	list-style-type: none; 
+}
+
+#menu_general li {
+	/*display: inline;*/
+	padding: 0px 15px 0px 0px ;
+	margin: 0px; 
+	float: left ; 
+}
+
+#menu_general li a {
+	text-decoration: none; 
+	color: #B09D3C;
+	border-bottom: 2px solid #B09D3C;
+	display: block ; 
+}
+
+#menu_general li .ici_page_generique {
+
+}
+
+#menu_general li a:hover {
+	color: black; 
+	border-bottom: 2px solid black;
+}
+/*=============  Menu consultation ======================= */
+#menu_consultation {
+	font-size: 80% ; 
+	padding: 0px ; 
+	float: left ; 
+	/*clear: left; */
+	font-weight: bold; 
+	/*border: 1px solid yellow; */
+	list-style-type: none; 
+}
+
+#menu_consultation li {
+	/*display: inline;*/
+	padding: 0px 15px 0px 0px ;
+	margin: 0px; 
+	float: left ; 
+}
+
+#menu_consultation li a {
+	text-decoration: none; 
+	color:#009900;
+	border-bottom: 2px solid #009900;
+	display: block ; 
+}
+
+#menu_consultation li .ici_page_generique {
+
+}
+
+#menu_consultation li a:hover {
+	color: black; 
+	border-bottom: 2px solid black;
+}
+/*=============  Gestion du compte et Admin======================= */
+#gestion_compte {
+	clear: none ; 
+	/*border: 1px solid black ; */
+	width: 500px ; 
+}
+
+#gestion_compte, #admin {
+	font-size: 80% ; 
+	float: right; 
+	margin: 0px 0px 7px 0px; 
+	padding: 0px; 
+	font-weight: bold; 
+	list-style-type: none; 
+}
+
+#gestion_compte li, #admin li {
+	padding: 0px 0px 0px 15px; 
+	margin: 0px;
+	float: right ; 
+	/*border: 1px solid blue ; */
+}
+
+#gestion_compte li a, #admin li a {
+	text-decoration: none; 
+	display: block ; 
+}
+
+#gestion_compte li a {
+	color: #9C688A ; 
+	border-bottom: 2px solid #9C688A ; 
+}
+
+#gestion_compte li .sauvegarde_inutile {
+	color: #BC88AA ; 
+}
+
+#admin li a {
+	color: green ; 
+	border-bottom: 2px solid green ; 
+}
+
+#gestion_compte li a:hover, #admin li a:hover {
+	color: black ; 
+	border-bottom: 2px solid black ; 
+}
+
+/*=============  information ======================= */
+#information {
+	font-size: 70% ; 
+	padding: 0px; 
+	margin: 0px ; 
+	text-align: right; 
+	color: #222222; 
+	/*border: 1px solid black ; */
+}
+
+/*=============  menu_questionnaire ======================= */
+#menu_questionnaire {
+	font-size: 80% ; 
+	margin: 0px 10px 5px 10px; 
+	padding: 0px ; 
+	float: left; 
+	width: 210px ;	
+}
+
+#menu_questionnaire li {
+	list-style: none; 
+	margin: 7px 0px; 
+	padding: 0px; 
+	/*border: 1px solid #336699;	*/
+	border: 1px solid #bbbbbb;
+	background-color: #fafafa;	
+}
+
+#menu_questionnaire li ul li {
+	border: none; 
+	padding: 1px 5px ; 
+	margin: 0px; 
+}
+
+#menu_questionnaire li ul {
+	margin: 0px; 
+	padding: 2px 0px; 
+	/* border-top: 1px solid #bbbbbb;	*/
+}
+
+#menu_questionnaire li .titre , #menu_questionnaire li .titre_resultat {
+	background-color: #f0f0f0;	
+}
+
+#menu_questionnaire li .titre {
+	border-bottom: 1px solid #bbbbbb;		
+	padding: 2px 5px ; 
+}
+
+#menu_questionnaire li .titre_resultat {
+	padding: 2px 5px ; 
+}
+
+#menu_questionnaire li a.nom, #menu_questionnaire li a.ajouter, #menu_questionnaire li a.resultat_complet, #menu_questionnaire li a.resultat_incomplet {
+	color: #666666; 	
+}
+
+#menu_questionnaire li .titre_resultat a.resultat_incomplet, #menu_questionnaire li .titre_resultat a.resultat_complet {
+	margin-right: 5px; 
+}
+#menu_questionnaire li .titre_resultat a.resultat_incomplet {
+	text-decoration: none ; 
+}
+#menu_questionnaire li .titre_resultat a.resultat_complet {
+	font-weight: bold; 
+}
+
+#menu_questionnaire li .titre_resultat .saisie_incomplet {
+	color: #A3211E;
+	font-weight: bold; 
+}
+#menu_questionnaire li .titre_resultat .saisie_complet {
+	color:  #83B382; 
+	font-weight: bold; 
+}
+
+#menu_questionnaire li a.nom:hover, #menu_questionnaire li a.ajouter:hover, #menu_questionnaire li a.resultat_complet:hover {
+	color: #6699cc;
+}
+
+#menu_questionnaire li a.ajouter {
+	padding: 2px 0px 4px 20px; 
+	display: block ; 
+}
+
+#menu_questionnaire li ul li .nom, #menu_questionnaire li .ajouter {
+	margin: 0px 0px 0px 12px; 
+}
+
+#menu_questionnaire li ul li .ajouter {
+	padding: 0px 0px 0px 0px; 
+	margin-left: 24px ; 
+}
+
+#menu_questionnaire .incomplet, #menu_questionnaire .complet {
+	float: left; 
+	padding: 5px ; 
+}
+
+#menu_questionnaire .ici_menu_questionnaire {
+	/*float : left ; */
+	margin-right: -12px ; 
+	font-weight: bold ; 
+	color: green ; 
+}
+/*=============  menu_facteur_emission ======================= */
+#menu_facteur_emission {
+	font-size: 80% ; 
+	margin: 0px 10px 5px 10px; 
+	padding: 0px ; 
+	float: left; 
+	width: 210px ;	
+}
+
+#menu_facteur_emission li {
+	list-style: none; 
+	margin: 7px 0px; 
+	padding: 2px; 
+	/*border: 1px solid #336699;	*/
+	border: 1px solid #bbbbbb;
+	background-color: #fafafa;	
+}
+
+#menu_facteur_emission li ul li {
+	border: none; 
+	padding: 1px 5px ; 
+	margin: 0px; 
+}
+
+#menu_facteur_emission li ul {
+	margin: 0px; 
+	padding: 2px 0px; 
+	/* border-top: 1px solid #bbbbbb;	*/
+}
+
+#menu_facteur_emission li .titre , #menu_facteur_emission li .titre_resultat {
+	background-color:#FBFCA7;	
+}
+
+#menu_facteur_emission li .titre {
+	border-bottom: 1px solid #bbbbbb;		
+	padding: 2px 5px ; 
+}
+menu_facteur_emission .titre_unite {
+	border-bottom: 1px solid #bbbbbb;		
+}
+#menu_facteur_emission .titre_menu_consultation {
+	text-align:center;
+}
+#menu_facteur_emission li .titre_resultat {
+	padding: 2px 5px ; 
+}
+
+#menu_facteur_emission li a.nom, #menu_facteur_emission li a.ajouter, #menu_facteur_emission li a.resultat_complet, #menu_facteur_emission li a.resultat_incomplet {
+	color: #666666;
+	margin:10px;
+}
+
+#menu_facteur_emission li .titre_resultat a.resultat_incomplet, #menu_facteur_emission li .titre_resultat a.resultat_complet {
+	margin-right: 5px; 
+}
+#menu_facteur_emission li .titre_resultat a.resultat_incomplet {
+	text-decoration: none ; 
+}
+#menu_facteur_emission li .titre_resultat a.resultat_complet {
+	font-weight: bold; 
+}
+
+#menu_facteur_emission li .titre_resultat .saisie_incomplet {
+	color: #A3211E;
+	font-weight: bold; 
+}
+#menu_facteur_emission li .titre_resultat .saisie_complet {
+	color:  #83B382; 
+	font-weight: bold; 
+}
+
+#menu_facteur_emission li a.nom:hover, #menu_facteur_emission li a.ajouter:hover, #menu_facteur_emission li a.resultat_complet:hover {
+	color: #6699cc;
+}
+
+#menu_facteur_emission li a.ajouter {
+	padding: 2px 0px 4px 20px; 
+	display: block ; 
+}
+
+#menu_facteur_emission li ul li .nom, #menu_facteur_emission li .ajouter {
+	margin: 0px 0px 0px 12px; 
+}
+
+#menu_facteur_emission li ul li .ajouter {
+	padding: 0px 0px 0px 0px; 
+	margin-left: 24px ; 
+}
+
+#menu_facteur_emission .incomplet, #menu_facteur_emission .complet {
+	float: left; 
+	padding: 5px ; 
+}
+
+#menu_facteur_emission .ici_menu_questionnaire {
+	/*float : left ; */
+	margin-right: -12px ; 
+	font-weight: bold ; 
+	color: green ; 
+}
+
+/*=============  Icône page_complet, page_incomplet  ======================= */
+.page_incomplet, .page_complet {
+	font-size: 1%; 
+}
+
+.page_incomplet {
+	/*background-color: #A3211E; */
+	background-color: #A3211E;
+}
+
+.page_complet {
+	background-color: #83B382; 
+}
+
+#menu_questionnaire .page_incomplet, #menu_questionnaire .page_complet {
+	padding: 6px 3px 0px 3px;
+	margin: 1px; 
+	/* float : left ; */
+}
+
+#principal .page_incomplet, #principal .page_complet {
+	padding: 6px 3px 0px 3px;
+	margin: 0px 5px ; 
+}
+
+/*=============  Lien "explication" ======================= */
+.lien_explication {
+	text-decoration: underline; 
+	font-weight: bold; 
+	background-color: #6699BB; 
+	color: white ;
+	font-size: 90%; 
+	/*color: #336699; 
+	color: #5588AA; */
+	padding: 0px 4px; 
+	/*border: 1px solid #336699; */
+}
+
+a.lien_explication:hover {
+	background-color: black;
+	color: white; 
+}
+
+#principal .lien_explication {
+	font-size: 80%; 
+	margin: 0px 3px; 
+}
+
+#principal p.lien_explication_page {
+	margin: 0px 10px 0px 0px ; 
+	padding: 0px ; 
+	float: right ; 
+	/* clear: right ; */
+}
+
+
+#principal .question .explication_question {
+	float: right ; 
+	margin: 0px 10px 0px 0px ; 
+}
+
+#menu_questionnaire .lien_explication {
+	float: right; 
+}
+/*=============  Lien supprimer ======================= */
+
+#menu_questionnaire a.lien_supprimer , #principal .lien_supprimer {
+	color: #A3211E;
+	padding: 0px 4px ; 
+	text-decoration: underline ;
+	/*font-weight : bold ; */
+}
+
+#menu_questionnaire a.lien_supprimer {
+	float: right ; 
+}
+#menu_questionnaire a.lien_supprimer:hover {
+	color: white ; 
+	background-color: #A3211E;
+}
+/*============================================= */
+/*=============  Principal ======================= */
+/*============================================= */
+#principal {
+	font-size: 90% ; 
+	margin: 5px 10px 15px 235px; 
+}
+
+#principal h2 {
+	margin-bottom: 5px ; 
+}
+
+/*     =============  Affichage des questions   ===============     */
+
+#principal .question {
+	margin: 10px 0px 10px 0px ; 
+	/* border: 1px solid silver ; */
+	border-top: 1px solid silver ; 
+	padding: 5px 0px ; 
+}
+
+#principal .question p.intitule {
+	font-weight: bold ; 
+	margin: 5px 0px 5px 0px ; 
+	padding: 0px ; 
+}
+
+#principal .question p.intitule strong.facteur_temporel {
+	/*color : #A3211E ; */
+	color : #9C2A2C ; 
+}
+
+#principal .question .question_aide {
+	/*color: #db5902;
+	color: #8D579E ; 
+	color: #336699 ; 
+	color: #945A87 ; 
+	color: #6C5375	 ; 
+	color: #75245A	 ; 
+	color: #9C6E9C	 ;  
+  color: #83487B ; */
+  color: #83487B ; 
+	font-size: 90%;
+	margin: 2px 0px ; 
+}
+
+#principal .question .warning {
+	/*font-weight: bold;*/ 
+	color : #9C2A2C ; 
+}
+
+#principal .question p.reponse {
+	margin: 0px; 
+	padding: 0px ; 
+	font-size: 95% ; 
+	/*border : 1px solid green ; */
+}
+
+#principal .question p.reponse input {
+	margin-right : 7px ; 
+}
+
+#principal .question p.bouton_valider input {
+	font-size: 120% ; 
+}
+
+/*   =================  Boite de navigation entre les pages dans la page principale   =======================  */
+
+#principal .boite_nav_quest {
+	clear: right ; 
+	float: right ; 
+	/*border: 1px solid silver ; */
+	width: 350px ; 
+	margin: 0px 5px 5px 10px; 
+}
+
+#principal .boite_nav_quest a {
+	/*font-weight: bold ; */
+	
+	float: right ; 
+	margin-left: 10px ; 
+	margin-top: 5px ; 
+	font-size: 120% ;
+	text-decoration: none ; 
+	/* color: #666666 ; */
+	color: white ;
+	/* background-color: #336699;*/
+	background-color: #6699BB; 
+	/* border: 1px solid #666666 ; */
+	border: 1px solid #6699BB ; 
+	padding: 0px 6px ; 
+}
+
+#principal #texte .description_fleche {
+	color: white ;
+	background-color: #6699BB; 
+	text-decoration: none; 
+	padding: 0px 2px; 
+}
+
+#principal .boite_nav_quest a:hover {
+	background-color: white ; 
+	color: #336699 ; 
+}
+
+#principal .boite_nav_quest p {
+	/*float: right ; */
+	font-size: 70% ; 
+	color: #336699 ; 
+	/*width: 350px ; */
+	padding: 0px; 
+	margin: 0px; 
+}
+
+/*   ================  Message post-saisie   ============ */
+
+#principal .message_post_saisie {
+	border-bottom: 1px solid silver ; 
+	padding-bottom: 0px ; 
+	margin-bottom: 10px ; 
+}
+
+#principal .message_post_saisie p {
+	
+}
+
+#principal .message_post_saisie p .reponse_invalide {
+	font-weight: bold ; 
+	color: red; 
+}
+
+#principal .message_post_saisie p .page_incomplete {
+	font-weight: bold ; 
+	color: orange; 
+}
+
+#principal .message_post_saisie p .page_complete {
+	font-weight: bold ; 
+	color: green; 
+}
+/*=============  Demande confirmation/annulation ======================= */
+#principal ul.confirmation_annulation {
+	/*text-align: center ; */
+	margin-top: 25px ; 
+}
+
+#principal ul.confirmation_annulation li {
+	list-style : none ; 
+	display: inline ; 
+	margin: 10px 30px 0px 0px ; 
+}
+
+#principal ul.confirmation_annulation li a {
+	border: 1px solid black; 
+	color: black ; 
+	text-decoration: none; 
+	padding: 3px 10px ; 
+	font-weight: none; 
+	background-color: #f5f5f5;; 
+}
+
+#principal ul.confirmation_annulation li a:hover {
+	border: 1px solid orange; 
+}
+
+/*=============  Mise en garde accès résultat======================= */
+#principal p .mise_en_garde_acces_resultat {
+	color: #A3211E;
+}
+
+/*=============  Mise en garde cookies désactivés ======================= */
+#principal .mise_en_garde_cookies {
+	color: #A3211E;
+}
+#principal p.courriel_invalide {
+	color: #A3211E;
+}
+/*  ==================  lien de retour au menu de la FAQ  =================  */
+
+#principal p.retour_menu_faq {
+
+}
+#principal p.retour_menu_faq a {
+
+}
+/*  ==================  lien de retour depuis une page d'explication   =================  */
+
+#principal p.retour_depuis_explication {
+
+}
+#principal p.retour_depuis_explication a {
+
+}
+
+#principal .img {
+	list-style: none ; 
+	margin: 2px 0px; 
+	padding: 0px ; 
+}
+
+#principal a img {
+	padding: 0px 0px; 
+	border: none;
+	text-align: center;
+	margin: 0px; 
+}
+
+/*  ==================  tableau des sauvegardes  =================  */
+#tableau_sauvegarde {
+	background-color : #fafafa;	
+	border: 1px solid #336699;
+	padding: 0px ; 
+}
+
+#tableau_sauvegarde tr.en_tete {
+	background-color : #336699;
+	color : white ; 
+	margin: 0px; 
+}
+
+#tableau_sauvegarde td {
+	margin: 0px ; 
+	text-align: center; 
+	padding: 2px 10px ; 
+}
+
+#tableau_sauvegarde th {
+	padding: 2px 10px ; 
+
+}
+
+#tableau_sauvegarde .incomplet {
+	color: #A3211E;
+}
+
+#tableau_sauvegarde .complet {
+	color: #83B382; 
+}
+
+
+
+/*  ==================  options pour sauvegardes  =================  
+dl.option_sauvegarde dt {
+	font-weight: bold; 
+}
+*/
+/*================================================= */
+/*=============  Pied de page ======================= */
+/*================================================= */
+#pied {
+	text-align : center;
+	background-color: #336699;
+	padding: 5px;
+	margin: 10px 0px 0px 0px;
+	clear: both; 
+	border-top: 1px solid silver; 
+	color: white; 
+}
+
+#pied a {
+	text-decoration: underline;
+	color: white; 
+}
+
+#pied ul {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+
+#pied ul li {
+	display: inline;
+	list-style: none;
+	margin: 0px 7px 0px 7px;
+	font-size: 80%;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* Style généraux */
+*{
+	font-family:Verdana,Tahoma,Arial,sans-serif;
+	font-size:11px;
+}
+body {
+	background: #DEDEDE none repeat scroll 0%;
+	overflow: auto;
+}
+
+#Page {
+border:1px solid #9C9C9C;
+margin:10px auto;
+padding:0px;
+position:relative;
+text-align:left;
+min-width:98%;
+background: #FFFFFF;
+}
+form.boutton{
+	display:inline;
+}
+/* MENU FACTEUR EMISSION */
+.menu {
+	border:1px solid #99AAFF;
+	margin-left:15px;
+	margin-right: 1px;
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 230px;
+	min-height: 75%;
+	background-color:#E4EDFF;
+	float:left;
+
+}
+.menu h1{
+	border-bottom:1px solid;
+	border-bottom-color:#000000;
+	border-bottom-width:thin;
+	border-top:1px solid;
+	border-top-color:#000000;
+	border-top-width:thin;
+	margin-top:45px;
+	font-size:x-large;
+	text-align:center;
+}
+
+p.choix_menu{
+	font-weight:bold;
+	margin:0px;
+	padding:3px 5px;
+	width:45%;
+	float:left;
+}
+p.choix_menu a{
+	background-color:#000066;
+	border-left:1px solid #FFFFFF;
+	color:white;
+	display:block;
+	font-size:large;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	text-align:center;
+	text-decoration:none;
+}
+p.choix_menu a:hover{
+background-color:#E6B24C;
+}
+
+p.change_mode{
+	font-weight:bold;
+	margin-bottom:2px;
+	padding:3px 5px;
+	text-align:center;
+}
+p.change_mode a{
+	background-color:#336699;
+	border-left:1px solid #FFFFFF;
+	color:white;
+	display:block;
+	font-size:large;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	text-align:center;
+	text-decoration:none;
+}
+p.change_mode a:hover{
+background-color:#E6B24C;
+}
+p.choix_rubrique{
+	display: inline;
+	margin-right:0px;
+}
+.boutton{
+	display:inline;
+	margin:0px;
+}
+
+.boutton input.fleche_verticale{
+	width:30px;
+	margin:0px;
+}
+.boutton input.fleche_horizontale{
+	width:30px;
+	margin:0px;
+}
+
+
+
+#contenu_facteur_emission {
+	margin-left: 5px;
+	float:left;
+	width:75%;
+}
+p.champ_form{
+	display:inline;
+	margin-left:1%;
+}
+
+
+#contenu_unite {
+	margin-left: 280px;
+}
+
+/* Style des tableaux */
+.tableau{
+	margin-top : 10px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+
+.tableau thead td.titre_ligne {
+	text-align: center;
+}
+
+.tableau tbody td.titre_ligne {
+	width: 150px;
+	text-align: center;
+}
+
+
+.tableau td.colonne {
+	width: 120px;
+	text-align: center;
+}
+.tableau td.colonne select {
+	width: 75%;
+	float:left;
+}
+.tableau input {
+	width:95%;
+}
+.tableau td.incertitude {
+	width: 80px;
+	text-align: center;
+}
+
+.tableau td.incertitude input {
+	max-width: 100%;
+}
+
+.tableau td.supprimer {
+	text-align:center;
+	width: 60px;
+}
+
+.tableau td.supprimer input {
+	width: 60px;
+}
+
+.tableau select {
+	margin: 0px;
+}
+.tableau thead{
+	background-color: #FBFCA7;
+}
+.tableau tbody {
+	background-color:#FFFFFF;
+}
+
+/* style tableau permettant de modifier l'odre des colonnes et lignes */
+.table_ordre_unite{
+	margin:10px;
+}
+.table_ordre_unite thead,tbody{
+	background-color:#FBFCA7;
+}
+
+.table_ordre_unite td.symbole {
+	width : 100px;
+	text-align: center;
+}
+
+.table_ordre_unite td.option {
+	width : 75px;
+	text-align:center;	
+}
+
+.table_ordre_unite td {
+	padding-left : 3px;
+	padding-right : 3px;
+	height : 20px;
+}
+/* style des tableaux permettant la conversion d'unités */
+.table_conversion_unite{
+	margin-left:1%;
+}
+
+.table_conversion_unite thead{
+	background-color: #FBFCA7;
+}
+.table_conversion_unite tbody{
+	background-color: #FFFFFF;
+}
+.table_conversion_unite td.symbole {
+	width: 100px;
+	background-color:#FBFCA7;
+}
+
+.table_conversion_unite input.coefficient {
+	width: 100px;
+}
+
+.table_conversion_unite td {
+	padding-left: 3px;
+	padding-right: 3px;
+	text-align :center;
+	white-space: nowrap;
+}
+
+/* Choix des unités (en partie consultation) */
+td.colonne select{
+	float:left;
+}
+/* Style concernant l'authentification */
+.Bloc_login{
+background-color:#FFFFFF;
+border:1px solid #99AAFF;
+width:50%;
+margin-left:auto;
+margin-right:auto;
+margin-top:12%;
+padding-bottom:2%;
+}
+
+.Bloc_login h2 {
+background-color:#F0F0F0;
+border-bottom:1px solid #99AAFF;
+border-color:#99AAFF;
+border-width:1px;
+font-size:1.15em;
+font-weight:bold;
+height:25px;
+margin-bottom:0px;
+margin-top:0px;
+padding-left:20px;
+}
+
+/*Style concernant le bloc principale*/
+.Bloc_donnees{
+border:1px solid #99AAFF;
+margin-top:5px;
+margin-left:1%;
+margin-right:1%;
+margin-bottom:1%;
+padding-top:0px;
+
+
+}
+.Bloc_donnees h2 {
+
+background-color:#F0F0F0;
+border-bottom:1px solid #99AAFF;
+border-color:#99AAFF;
+border-width:1px;
+font-size:1.15em;
+font-weight:bold;
+margin-bottom:1%;
+margin-top:0px;
+padding-left:20px;
+}
+.Bloc_donnees p{
+	margin-bottom:1%;
+	margin-left:1%;
+}
+/*Style concernant le bloc contenant les tableaux*/
+.Bloc_tableau{
+border:1px solid #bbbbbb;
+margin:1%;
+padding-bottom:2%;
+}
+.Bloc_tableau h2 {
+background-color:#F0F0F0;
+border-bottom:1px solid #99AAFF;
+border-color:#bbbbbb;
+border-width:1px;
+font-size:1.15em;
+font-weight:bold;
+height:18px;
+margin-bottom:25px;
+margin-top:0px;
+padding-left:20px;
+
+}
+.Bloc_tableau p{
+	margin-left:1%;
+}
+.retour_ligne{
+	clear:both;
+	margin:0px;
+	width:0px;
+	height:0px;
+}
+.Bloc_chiffre_signi{
+margin-bottom:1%;
+padding-bottom:2%;
+text-align:center;
+}
+
+.contenu{
+	margin-left:3%;
+}
+.contenu input{
+	margin:4px;
+}
+
+
+
+.BlocHaut {
+background-color:#E3EAFF;
+border:medium none;
+color:#336699;
+font-size:1.2em;
+margin-top:0px;
+margin-bottom:1%;
+padding:7px;
+height:45px;
+}
+.BlocHaut a{
+	border-style:hidden;
+	border-width:0px;
+}
+.BlocHaut img{
+	border-style:hidden;
+	border-width:0px;
+	margin-top:2px;
+	display:inline;
+	float:left;
+}
+.BlocHaut h1{
+	border:none;
+	display:inline-block;
+	margin-top:10px;
+	font-size:xx-large;
+	margin-left:30px;
+}
+#BlocBas {
+	background-color:#E3EAFF;
+	border:medium none;
+	clear:both;
+	color:#336699;
+	font-size:0.9em;
+	font-weight:bold;
+	margin-top:100px;
+	margin-bottom: 0pt;margin-left: 0pt;margin-right: 0pt;
+	padding-bottom:0px;
+	padding-top:0px;
+	text-align:center;
+	height:30px;
+}
+
+.commentaire{
+	font-style:italic;
+	font-size:9px;	
+}
+
+.BlocIndex {
+	background-color:#FFFFFF;
+	border:2px solid #99AAFF;
+	width:50%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:17%;
+	padding-bottom:2%;
+	text-align:center;
+}
+.BlocIndex h1{
+	font-size:xx-large;
+}

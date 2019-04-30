@@ -1,0 +1,116 @@
+TOUJOURS MES REMARQUES DE DEPART :
+- les FAQ répondent à des demandes métier pas d'ergonomie ou de navigabilité
+- si on fusionne les 2, il s'agit plus d'un manuel d'utilisateur
+- sinon, il faut une rubrique à part de la FAQ intitulée "mode d'emploi"
+
+SINON
+
+adresse_courriel_exploitable.html
+ok
+
+
+agregation_ges_unite_commune.html
+PRG = Pouvoir Radiatif Global ou pouvoir de Réchauffement Global ???
+Change CO2 w a good 2.
+
+
+appartement_location_bc.html
+Quid de l'usage des revenus de rente sur le BC de qq1 ?
+
+
+bouton_remettre_a_zero.html
+TO CHECK if raz button clean fields or just reput recorded datas.
+
+
+charger_donnees_sauvegardees.html
+Ok
+
+
+compensation_voyages_avion_bc.html
+Done
+
+
+consos_sante_bc.html
+Done
+A mon avis, il vaut mieux ne pas dire ce qui n'existe pas encore pour éviter de compliquer les choses et éviter de se mettre en position de devoir faire qqch de promis.
+
+
+cookies.html
+Quid des cookies ? Toujours vrai même dans la version batarde actuelle ?
+
+
+declaration_cnil.html
+Ok
+
+
+difference_donnees_session_sauvegarde.html
+Ok
+
+
+emissions_activite_professionnelle.html
+HAS TO BE CHECKED by JMJ
+
+
+emissions_services_publics.html
+Done
+A mon avis, il vaut mieux ne pas dire ce qui n'existe pas encore pour éviter de compliquer les choses et éviter de se mettre en position de devoir faire qqch de promis.
+En revanche dire sur la page résultats que les résultats ne prennent pas en compte les émissions fixes liées à l'état de résident Français, oui !
+
+identification_n_est_pas_sauvegarde.html
+Ok
+
+
+individuel_ou_foyer.html
+Ok
+A mon avis, il vaut mieux ne pas dire ce qui n'existe pas encore pour éviter de compliquer les choses (versions de Calculateur et donc quid des infos déjà sauvegardées ? etc) et éviter de se mettre en position de devoir faire qqch de promis.
+
+
+interet_personnel_et_bc.html
+Ok
+Politiquement correct ?
+
+
+javascript.html
+JS est-ce le cas actuellement ?
+Popup idem ?
+
+
+marge_d_incertitude_bilan_carbone.html
+Ok
+
+
+nombre_sauvegardes.html
+Ok
+
+
+perte_mot_de_passe.html
+Ok
+
+
+possibilite_statistiques.html
+Ok
+
+
+pourquoi_pas_seulement_logement_transport.html
+Done
+
+
+proprietaire_appartement_inoccupe_bc.html
+CONTRADICTOIRE avec appartement_location_bc.html
+Car quid des émissions d'amortissement liées à la construction ?
+
+
+qu_est_ce_qu_un_facteur_d_emission.html
+Ok
+
+
+qu_est_ce_que_le_bilan_carbone.html
+Ok
+
+
+quels_ges_pris_en_compte_dans_bc.html
+Ok
+
+
+vindicte_populaire.html
+A RETIRER

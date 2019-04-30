@@ -1,0 +1,36 @@
+/*=============  generalités  ============ */
+* {
+	font-family: helvetica, arial, sans-serif;
+}
+#contour {
+	border: 3px solid #336699;
+	background-color:	#FDFFEF; 
+}
+.separateur {
+   clear: both;
+}
+
+/*=============  titre ============ */
+#titre {
+	padding: 0px 10px 0px 0px; 
+	background-color: #336699;
+	color: #eeeeee; 
+	margin: 0px; 
+	border: 1px solid #336699;
+}
+
+#titre h1 {
+	font-size: 160%;
+	margin: 0px ; 
+	padding: 5px 0px 0px 10px;
+}
+/*=============  menu admin ============ */
+#menu_admin {
+	list-style : none ; 
+	text-align : center ; 
+	font-size : 90% ; 
+}
+
+#menu_admin li {
+	display: inline ; 
+}

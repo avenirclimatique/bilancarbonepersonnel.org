@@ -1,0 +1,27 @@
+Le squelette du questionnaire est codé dans le fichier donnnes/structure.xml
+
+Les textes des questions se trouvent dans le fichier lang/fr.php
+
+Les textes à rédiger se trouvent dans le dossier textes/ , plus précisément : 
+
+Les textes "génériques" de l'interface (Accueil, Présentation, Liens, Remerciements) se trouvent dans le dossier : 
+textes/fr/generique . Ces textes sont a priori terminés. 
+
+FAQ : 
+- la structure de la FAQ est dans le fichier textes/faq.xml
+- les énoncés des questions de la FAQ se trouvent dans le fichier textes/fr/faq/enonces_questions.php
+- la réponse à chaque question de la FAQ est sous la forme d'un fichier html, qui se trouve dans le dossier textes/fr/faq/
+ce fichier porte le nom générique nom_de_la_question.html , où le nom de la question se trouve dans le fichier textes/faq.xml 
+entre les balises <question></question>
+- pour certaines questions de la FAQ il n'y a pas encore de fichier html, ou bien juste une ébauche... 
+- le fichier textes/fr/faq/idees_nouvelles_FAQ.txt ... pour plus tard ! 
+
+Fichiers d'explications : 
+les fichiers d'explications sont des fichiers html, qui se trouvent dans le dossier textes/fr/explications . 
+Leur nom générique est : nom_fichier.html, où nom_fichier correspond au nom de la partie du questionnaire concerné par les explications, 
+ce nom se trouvant dans le fichier de structure du questionnaire, donnees/structure.xml .
+- nom_fichier est le nom de la rubrique si l'explication concerne une rubrique, 
+- nom_fichier est le nom de la page si l'explication concerne une page
+- nom_fichier est le nom de la question si l'explication concerne une question
+
+Il n'y a pour le moment pratiquement aucun fichier d'explications. 

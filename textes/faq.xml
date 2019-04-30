@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+
+<faq>
+
+<categorie>
+	<titre>mode_d_emploi_interface</titre>
+
+	<question>documents_pour_bc</question>
+	<question>identification_n_est_pas_sauvegarde</question>
+	<question>perte_mot_de_passe</question>
+	<question>difference_donnees_session_sauvegarde</question>
+	<question>bouton_remettre_a_zero</question>
+	<question>charger_donnees_sauvegardees</question>
+	<question>cookies</question>
+	<question>javascript</question>
+	
+</categorie>
+
+<categorie>
+	<titre>generalites_bilan_carbone</titre>
+	
+	<question>qu_est_ce_que_le_bilan_carbone</question>
+	<question>quels_ges_pris_en_compte_dans_bc</question>
+	<question>agregation_ges_unite_commune</question>
+	<question>qu_est_ce_qu_un_facteur_d_emission</question>
+	<question>marge_d_incertitude_bilan_carbone</question>
+</categorie>
+
+<categorie>
+	<titre>soutenabilite_comparaisons</titre>
+	
+	<question>quel_bc_soutenable</question>
+	<question>quel_bc_moyenne_francaise</question>
+	<question>interet_personnel_et_bc</question>
+</categorie>
+
+<categorie>
+	<titre>perimetre_emissions</titre>
+	<question>pourquoi_pas_seulement_logement_transport</question>
+	<question>emissions_activite_professionnelle</question>
+	<question>individuel_ou_foyer</question>
+	<question>emissions_services_publics</question>
+	<question>compensation_carbone_bc</question>
+	<question>bc_perso_domtom_pas_dispo</question>
+</categorie>
+
+<categorie>
+	<titre>logement</titre>
+	<question>appartement_location_bc</question>
+	<question>proprietaire_appartement_inoccupe_bc</question>
+	<question>energies_renouvelables_usages_thermiques</question>
+	<question>electricite_certificat_vert</question>
+	<question>citoyen_producteur_electricite</question>
+</categorie>
+
+<categorie>
+	<titre>transport</titre>
+	<question>voyage_perso_etranger</question>
+</categorie>
+
+<!--
+<categorie>
+	<titre>alimentation</titre>
+
+</categorie>
+-->
+
+<categorie>
+	<titre>consommation</titre>
+
+	<question>consos_sante_bc</question>
+</categorie>
+
+	<!--
+<categorie>
+	<titre>confidentialite_statistiques</titre>
+
+	
+	<question>adresse_courriel_exploitable</question>
+	<question>declaration_cnil</question>
+	<question>possibilite_statistiques</question>
+	<question>vindicte_populaire</question>
+</categorie>
+	-->
+
+</faq>

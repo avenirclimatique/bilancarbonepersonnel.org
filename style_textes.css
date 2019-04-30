@@ -1,0 +1,51 @@
+/*
+
+Fichier de style pour tous les fichiers html : fichiers génériques, fichiers d'explication, fichiers de la faq
+
+tous les fichiers de texte sont affichés à l'intérieur de la boite #texte elle-même à l'intérieur de la boite #principal
+ça permet d'affecter des style sans interférer avec le reste du site
+
+Balises autorisées : 
+<p>
+<strong>
+<em> ???
+<span class=''>
+
+Balises interdites : 
+<br/>
+<b>
+styles dans le html interdits
+
+ */
+
+#principal #texte {
+ font-size: 1.1em ; 
+ text-align: justify;
+} 
+ 
+#principal #texte p {
+
+}
+
+#principal #texte strong {
+	/*color: green ;*/
+}
+
+#principal #texte .rouge {
+	color : #9C2A2C ; 
+}
+#principal #texte .orange {
+	color: orange; 
+}
+
+#principal #texte a.logo_bilan_carbone {
+	float: right ; 
+	border: 1px solid silver;
+	margin: 5px 5px 10px 10px; 
+}
+
+#principal #texte #titre_question_faq {
+	font-size: 1.2em ; 
+}
+
+/* etc... */
