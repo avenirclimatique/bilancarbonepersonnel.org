@@ -1,0 +1,407 @@
+/* Style généraux */
+*{
+	font-family:Verdana,Tahoma,Arial,sans-serif;
+	font-size:11px;
+}
+body {
+	background: #DEDEDE none repeat scroll 0%;
+	overflow: auto;
+}
+
+#Page {
+border:1px solid #9C9C9C;
+margin:10px auto;
+padding:0px;
+position:relative;
+text-align:left;
+min-width:98%;
+background: #FFFFFF;
+}
+form.boutton{
+	display:inline;
+}
+/* MENU FACTEUR EMISSION */
+.menu {
+	border:1px solid #99AAFF;
+	margin-left:15px;
+	margin-right: 1px;
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 230px;
+	min-height: 75%;
+	background-color:#E4EDFF;
+	float:left;
+
+}
+.menu h1{
+	border-bottom:1px solid;
+	border-bottom-color:#000000;
+	border-bottom-width:thin;
+	border-top:1px solid;
+	border-top-color:#000000;
+	border-top-width:thin;
+	margin-top:45px;
+	font-size:x-large;
+	text-align:center;
+}
+
+p.choix_menu{
+	font-weight:bold;
+	margin:0px;
+	padding:3px 5px;
+	width:45%;
+	text-align:center;
+}
+p.choix_menu a{
+	background-color:#336699;
+	border-left:1px solid #FFFFFF;
+	color:white;
+	display:block;
+	font-size:large;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	text-align:center;
+	text-decoration:none;
+}
+p.choix_menu a:hover{
+background-color:#E6B24C;
+}
+
+p.change_mode{
+	font-weight:bold;
+	margin-bottom:2px;
+	padding:3px 5px;
+	text-align:center;
+}
+p.change_mode a{
+	background-color:#336699;
+	border-left:1px solid #FFFFFF;
+	color:white;
+	display:block;
+	font-size:large;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	text-align:center;
+	text-decoration:none;
+}
+p.change_mode a:hover{
+background-color:#E6B24C;
+}
+p.choix_rubrique{
+	display: inline;
+	margin-right:0px;
+}
+.boutton{
+	display:inline;
+	margin:0px;
+}
+
+.boutton input.fleche_verticale{
+	width:30px;
+	margin:0px;
+}
+.boutton input.fleche_horizontale{
+	width:30px;
+	margin:0px;
+}
+
+
+/* Choix du nombre de chiffres significatifs */
+#choix_nb_Chiffres_Signi {
+	margin-right: 20px;
+	margin-top: 10px;
+	width:285px;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:2px;
+	background-color:#E4EDFF;
+
+}
+
+#contenu_facteur_emission {
+	margin-left: 5px;
+	float:left;
+	width:75%;
+}
+p.champ_form{
+	display:inline;
+	margin-left:1%;
+}
+
+
+#contenu_unite {
+	margin-left: 280px;
+}
+
+/* Style des tableaux */
+.tableau{
+	margin-top : 10px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+
+.tableau thead td.titre_ligne {
+	text-align: center;
+}
+
+.tableau tbody td.titre_ligne {
+	width: 150px;
+	text-align: center;
+}
+
+
+.tableau td.colonne {
+	width: 120px;
+	text-align: center;
+}
+.tableau td.colonne select {
+	width: 75%;
+	float:left;
+}
+.tableau input {
+	width:95%;
+}
+.tableau td.incertitude {
+	width: 80px;
+	text-align: center;
+}
+
+.tableau td.incertitude input {
+	max-width: 100%;
+}
+
+.tableau td.supprimer {
+	text-align:center;
+	width: 60px;
+}
+
+.tableau td.supprimer input {
+	width: 60px;
+}
+
+.tableau select {
+	margin: 0px;
+}
+.tableau thead{
+	background-color: #FBFCA7;
+}
+.tableau tbody {
+	background-color:#FFFFFF;
+}
+
+/* style tableau permettant de modifier l'odre des colonnes et lignes */
+.table_ordre_unite{
+	margin:10px;
+}
+.table_ordre_unite thead,tbody{
+	background-color:#FBFCA7;
+}
+
+.table_ordre_unite td.symbole {
+	width : 100px;
+	text-align: center;
+}
+
+.table_ordre_unite td.option {
+	width : 75px;
+	text-align:center;	
+}
+
+.table_ordre_unite td {
+	padding-left : 3px;
+	padding-right : 3px;
+	height : 20px;
+}
+/* style des tableaux permettant la conversion d'unités */
+.table_conversion_unite{
+	margin-left:1%;
+}
+
+.table_conversion_unite thead{
+	background-color: #FBFCA7;
+}
+.table_conversion_unite tbody{
+	background-color: #FFFFFF;
+}
+.table_conversion_unite td.symbole {
+	width: 100px;
+	background-color:#FBFCA7;
+}
+
+.table_conversion_unite input.coefficient {
+	width: 100px;
+}
+
+.table_conversion_unite td {
+	padding-left: 3px;
+	padding-right: 3px;
+	text-align :center;
+	white-space: nowrap;
+}
+
+/* Choix des unités (en partie consultation) */
+td.colonne select{
+	float:left;
+}
+/* Style concernant l'authentification */
+.Bloc_login{
+background-color:#FFFFFF;
+border:1px solid #99AAFF;
+width:50%;
+margin-left:auto;
+margin-right:auto;
+margin-top:12%;
+padding-bottom:2%;
+}
+
+.Bloc_login h2 {
+background-color:#E3EAFF;
+border-bottom:1px solid #99AAFF;
+border-color:#99AAFF;
+border-width:1px;
+font-size:1.15em;
+font-weight:bold;
+height:25px;
+margin-bottom:0px;
+margin-top:0px;
+padding-left:20px;
+}
+
+/*Style concernant le bloc principale*/
+.Bloc{
+border:1px solid #99AAFF;
+margin-top:0px;
+margin-left:1%;
+margin-right:1%;
+margin-bottom:1%;
+padding-top:0px;
+
+
+}
+.Bloc h2 {
+
+background-color:#E3EAFF;
+border-bottom:1px solid #99AAFF;
+border-color:#99AAFF;
+border-width:1px;
+font-size:1.15em;
+font-weight:bold;
+margin-bottom:1%;
+margin-top:0px;
+padding-left:20px;
+}
+.Bloc p{
+	margin-bottom:1%;
+	margin-left:1%;
+}
+/*Style concernant le bloc contenant les tableaux*/
+.Bloc_tableau{
+border:1px solid #99AAFF;
+margin:1%;
+padding-bottom:2%;
+}
+.Bloc_tableau h2 {
+background-color:#E3EAFF;
+border-bottom:1px solid #99AAFF;
+border-color:#99AAFF;
+border-width:1px;
+font-size:1.15em;
+font-weight:bold;
+height:18px;
+margin-bottom:25px;
+margin-top:0px;
+padding-left:20px;
+
+}
+.Bloc_tableau p{
+	margin-left:1%;
+}
+.retour_ligne{
+	clear:both;
+	margin:0px;
+	width:1px;
+}
+.Bloc_chiffre_signi{
+border:1px solid #99AAFF;
+margin-bottom:1%;
+padding-bottom:2%;
+text-align:center;
+}
+
+.contenu{
+	margin-left:3%;
+}
+.contenu input{
+	margin:4px;
+}
+
+
+
+.BlocHaut {
+background-color:#E3EAFF;
+border:medium none;
+color:#336699;
+font-size:1.2em;
+margin-top:0px;
+margin-bottom:1%;
+padding:7px;
+height:45px;
+}
+.BlocHaut a{
+	border-style:hidden;
+	border-width:0px;
+}
+.BlocHaut img{
+	border-style:hidden;
+	border-width:0px;
+	margin-top:2px;
+	display:inline;
+	float:left;
+}
+.BlocHaut h1{
+	border:none;
+	display:inline-block;
+	margin-top:10px;
+	font-size:xx-large;
+	margin-left:30px;
+}
+#BlocBas {
+	background-color:#E3EAFF;
+	border:medium none;
+	clear:both;
+	color:#336699;
+	font-size:0.9em;
+	font-weight:bold;
+	margin-top:100px;
+	margin-bottom: 0pt;margin-left: 0pt;margin-right: 0pt;
+	padding-bottom:0px;
+	padding-top:0px;
+	text-align:center;
+	height:30px;
+}
+
+.commentaire{
+	font-style:italic;
+	font-size:9px;	
+}
+
+.BlocIndex {
+	background-color:#FFFFFF;
+	border:2px solid #99AAFF;
+	width:50%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:17%;
+	padding-bottom:2%;
+	text-align:center;
+}
+.BlocIndex h1{
+	font-size:xx-large;
+}
