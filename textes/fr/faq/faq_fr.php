@@ -4,56 +4,56 @@
 // ---------------------------------------------------------------------
 $TEXT['mode_d_emploi_interface'] = "Mode d'emploi et interface";
 
-	$TEXT['documents_pour_bc'] = "Quels sont les documents dont il est recommandé de se munir afin de pouvoir répondre aux questions avec le plus de précision possible&nbsp;?";
-	$TEXT['nombre_sauvegardes'] = "Puis-je sauvegarder plusieurs jeux de réponses avec un même identifiant&nbsp;?";
-	$TEXT['identification_n_est_pas_sauvegarde'] = "Suffit-il de m'identifier pour sauvegarder mes données&nbsp;?";
-	$TEXT['perte_mot_de_passe'] = "J'ai perdu mon mot de passe, puis-je malgré tout accéder à mes données sauvegardées&nbsp;?";
-	$TEXT['difference_donnees_session_sauvegarde'] = "Quelle est la différence entre mes données de session et mes données sauvegardées&nbsp;?";
-	$TEXT['bouton_remettre_a_zero'] = "Lorsque je clique sur 'Remettre à zéro', que se passe-t-il&nbsp;?";
-	$TEXT['charger_donnees_sauvegardees'] = "Lorsque je charge une de mes sauvegardes, cela supprime-t-il mes données de session actuelles&nbsp;?";
+	$TEXT['documents_pour_bc'] = "Quels sont les documents dont il est recommand\E9 de se munir afin de pouvoir r\E9pondre aux questions avec le plus de pr\E9cision possible&nbsp;?";
+	$TEXT['nombre_sauvegardes'] = "Puis-je sauvegarder plusieurs jeux de r\E9ponses avec un m\EAme identifiant&nbsp;?";
+	$TEXT['identification_n_est_pas_sauvegarde'] = "Suffit-il de m'identifier pour sauvegarder mes donn\E9es&nbsp;?";
+	$TEXT['perte_mot_de_passe'] = "J'ai perdu mon mot de passe, puis-je malgr\E9 tout acc\E9der \E0 mes donn\E9es sauvegard\E9es&nbsp;?";
+	$TEXT['difference_donnees_session_sauvegarde'] = "Quelle est la diff\E9rence entre mes donn\E9es de session et mes donn\E9es sauvegard\E9es&nbsp;?";
+	$TEXT['bouton_remettre_a_zero'] = "Lorsque je clique sur 'Remettre \E0 z\E9ro', que se passe-t-il&nbsp;?";
+	$TEXT['charger_donnees_sauvegardees'] = "Lorsque je charge une de mes sauvegardes, cela supprime-t-il mes donn\E9es de session actuelles&nbsp;?";
 	$TEXT['cookies'] = "Puis-je utiliser le calculateur si mon navigateur n'accepte pas les cookies, ou si j'ai choisi de ne pas les accepter&nbsp;?";
-	$TEXT['javascript'] = "Puis-je utiliser le calculateur si mon navigateur ne reconnaît pas le langage javascript, ou si j'ai choisi de désactiver cette fonctionnalité&nbsp;?";
+	$TEXT['javascript'] = "Puis-je utiliser le calculateur si mon navigateur ne reconna\EEt pas le langage javascript, ou si j'ai choisi de d\E9sactiver cette fonctionnalit\E9&nbsp;?";
 	
 // ---------------------------------------------------------------------
-$TEXT['generalites_bilan_carbone'] = "Généralités sur le BILAN CARBONE™";
+$TEXT['generalites_bilan_carbone'] = "G\E9n\E9ralit\E9s sur le BILAN CARBONE\99";
 
-	$TEXT['qu_est_ce_que_le_bilan_carbone'] = "Qu'est-ce que le BILAN CARBONE™&nbsp;?";
-	$TEXT['quels_ges_pris_en_compte_dans_bc'] = "Quels gaz à effet de serre sont pris en compte dans mon BILAN CARBONE™ Personnel&nbsp;?";
-	$TEXT['agregation_ges_unite_commune'] = "Comment les contributions des différents gaz à effet de serre sont-elles agrégées et en quelle unité sont-elles exprimées&nbsp;?";
-	$TEXT['qu_est_ce_qu_un_facteur_d_emission'] = "Qu'est-ce qu'un facteur d'émission&nbsp;?";
-	$TEXT['marge_d_incertitude_bilan_carbone'] = "A quoi est due la marge d'incertitude sur le résultat fourni par le calculateur, et comment est-elle estimée&nbsp;?";
-
-// ---------------------------------------------------------------------
-$TEXT['soutenabilite_comparaisons'] = "Soutenabilité et comparaisons";
-
-	$TEXT['quel_bc_soutenable'] = "Quel résultat le calcul de mon BILAN CARBONE™ Personnel doit-il fournir pour que mon mode de vie puisse être qualifié de 'soutenable' du point de vue des émissions de gaz à effet de serre&nbsp;?";
-	$TEXT['quel_bc_moyenne_francaise'] = "Quel résultat le calcul de mon BILAN CARBONE™ Personnel doit-il fournir pour que je n'émette pas plus que la moyenne française&nbsp;?";
-	$TEXT['interet_personnel_et_bc'] = "Du point de vue de mon strict intérêt personnel, dois-je m'inquiéter si le résultat du calcul de mon BILAN CARBONE™ Personnel rév&egrave;le un mode de vie et de consommation fortement émetteur de gaz à effet de serre&nbsp;?";
+	$TEXT['qu_est_ce_que_le_bilan_carbone'] = "Qu'est-ce que le BILAN CARBONE\99&nbsp;?";
+	$TEXT['quels_ges_pris_en_compte_dans_bc'] = "Quels gaz \E0 effet de serre sont pris en compte dans mon BILAN CARBONE\99 Personnel&nbsp;?";
+	$TEXT['agregation_ges_unite_commune'] = "Comment les contributions des diff\E9rents gaz \E0 effet de serre sont-elles agr\E9g\E9es et en quelle unit\E9 sont-elles exprim\E9es&nbsp;?";
+	$TEXT['qu_est_ce_qu_un_facteur_d_emission'] = "Qu'est-ce qu'un facteur d'\E9mission&nbsp;?";
+	$TEXT['marge_d_incertitude_bilan_carbone'] = "A quoi est due la marge d'incertitude sur le r\E9sultat fourni par le calculateur, et comment est-elle estim\E9e&nbsp;?";
 
 // ---------------------------------------------------------------------
-$TEXT['perimetre_emissions'] = "Le périm&egrave;tre des émissions";
+$TEXT['soutenabilite_comparaisons'] = "Soutenabilit\E9 et comparaisons";
 
-	$TEXT['pourquoi_pas_seulement_logement_transport'] = "Pourquoi les questions posées pour le calcul de mon BILAN CARBONE™ Personnel ne concernent-elles pas uniquement mes consommations de chauffage, d'eau chaude, d'électricité, et mes transports&nbsp;?";
-	$TEXT['emissions_activite_professionnelle'] = "Le calcul de mon BILAN CARBONE™ Personnel prend-il en compte les émissions engendrées par mon activité professionnelle&nbsp;?";
-	$TEXT['individuel_ou_foyer'] = "Le calcul de mon BILAN CARBONE™ Personnel prend-il en compte uniquement mes propres émissions ou toutes celles de mon foyer familial&nbsp;?";
-	$TEXT['emissions_services_publics'] = "Comment les émissions associées aux services publics sont-elles prises en compte dans le calcul de mon BILAN CARBONE™ Personnel&nbsp;?";
-	$TEXT['consos_sante_bc'] = "Pourquoi mes consommations de santé (consultations, médicaments, etc) ne sont-elles pas prises en compte dans le calcul de mon BILAN CARBONE™ Personnel&nbsp;?";
-	$TEXT['compensation_carbone_bc'] = "Si je compense, par exemple, un voyage en avion sur un site de compensation Carbone, dois-je tout de même prendre en compte ce voyage dans le calcul de mon BILAN CARBONE™ Personnel&nbsp;?";
-	$TEXT['bc_perso_domtom_pas_dispo'] = "Je suis résident des DOM-TOM, pourquoi ne m'est-il pas possible de faire mon BILAN CARBONE™ Personnel&nbsp;?";
+	$TEXT['quel_bc_soutenable'] = "Quel r\E9sultat le calcul de mon BILAN CARBONE\99 Personnel doit-il fournir pour que mon mode de vie puisse \EAtre qualifi\E9 de 'soutenable' du point de vue des \E9missions de gaz \E0 effet de serre&nbsp;?";
+	$TEXT['quel_bc_moyenne_francaise'] = "Quel r\E9sultat le calcul de mon BILAN CARBONE\99 Personnel doit-il fournir pour que je n'\E9mette pas plus que la moyenne fran\E7aise&nbsp;?";
+	$TEXT['interet_personnel_et_bc'] = "Du point de vue de mon strict int\E9r\EAt personnel, dois-je m'inqui\E9ter si le r\E9sultat du calcul de mon BILAN CARBONE\99 Personnel r\E9v&egrave;le un mode de vie et de consommation fortement \E9metteur de gaz \E0 effet de serre&nbsp;?";
+
+// ---------------------------------------------------------------------
+$TEXT['perimetre_emissions'] = "Le p\E9rim&egrave;tre des \E9missions";
+
+	$TEXT['pourquoi_pas_seulement_logement_transport'] = "Pourquoi les questions pos\E9es pour le calcul de mon BILAN CARBONE\99 Personnel ne concernent-elles pas uniquement mes consommations de chauffage, d'eau chaude, d'\E9lectricit\E9, et mes transports&nbsp;?";
+	$TEXT['emissions_activite_professionnelle'] = "Le calcul de mon BILAN CARBONE\99 Personnel prend-il en compte les \E9missions engendr\E9es par mon activit\E9 professionnelle&nbsp;?";
+	$TEXT['individuel_ou_foyer'] = "Le calcul de mon BILAN CARBONE\99 Personnel prend-il en compte uniquement mes propres \E9missions ou toutes celles de mon foyer familial&nbsp;?";
+	$TEXT['emissions_services_publics'] = "Comment les \E9missions associ\E9es aux services publics sont-elles prises en compte dans le calcul de mon BILAN CARBONE\99 Personnel&nbsp;?";
+	$TEXT['consos_sante_bc'] = "Pourquoi mes consommations de sant\E9 (consultations, m\E9dicaments, etc) ne sont-elles pas prises en compte dans le calcul de mon BILAN CARBONE\99 Personnel&nbsp;?";
+	$TEXT['compensation_carbone_bc'] = "Si je compense, par exemple, un voyage en avion sur un site de compensation Carbone, dois-je tout de m\EAme prendre en compte ce voyage dans le calcul de mon BILAN CARBONE\99 Personnel&nbsp;?";
+	$TEXT['bc_perso_domtom_pas_dispo'] = "Je suis r\E9sident des DOM-TOM, pourquoi ne m'est-il pas possible de faire mon BILAN CARBONE\99 Personnel&nbsp;?";
 
 // ---------------------------------------------------------------------
 $TEXT['logement'] = "Logement";
 
-	$TEXT['appartement_location_bc'] = "Je suis propriétaire d'un appartement occupé par des locataires, dois-je prendre en compte ce logement dans le calcul de mon BILAN CARBONE™ Personnel&nbsp;?";
-	$TEXT['proprietaire_appartement_inoccupe_bc'] = "Je suis propriétaire d'un appartement inoccupé, dois-je prendre en compte ce logement dans le calcul de mon BILAN CARBONE™ Personnel&nbsp;?";
-	$TEXT['energies_renouvelables_usages_thermiques'] = "Je dispose d'un système de géothermie, d'une pompe à chaleur ou de panneaux solaires thermiques, pourquoi n'est-il pas possible de l'indiquer dans mon BILAN CARBONE™ Personnel&nbsp;?";
-	$TEXT['electricite_certificat_vert'] = "J'ai souscrit une offre de fourniture d'Electricité Verte auprès de mon fournisseur, pourquoi n'est-il pas possible de l'indiquer dans mon BILAN CARBONE™ Personnel&nbsp;?";
-	$TEXT['citoyen_producteur_electricite'] = "Je produits chez moi de l'Electricité, à partir de panneaux solaires par exemple, comment puis-je prendre en compte cet élément dans mon BILAN CARBONE™ Personnel&nbsp;?";
+	$TEXT['appartement_location_bc'] = "Je suis propri\E9taire d'un appartement occup\E9 par des locataires, dois-je prendre en compte ce logement dans le calcul de mon BILAN CARBONE\99 Personnel&nbsp;?";
+	$TEXT['proprietaire_appartement_inoccupe_bc'] = "Je suis propri\E9taire d'un appartement inoccup\E9, dois-je prendre en compte ce logement dans le calcul de mon BILAN CARBONE\99 Personnel&nbsp;?";
+	$TEXT['energies_renouvelables_usages_thermiques'] = "Je dispose d'un syst\E8me de g\E9othermie, d'une pompe \E0 chaleur ou de panneaux solaires thermiques, pourquoi n'est-il pas possible de l'indiquer dans mon BILAN CARBONE\99 Personnel&nbsp;?";
+	$TEXT['electricite_certificat_vert'] = "J'ai souscrit une offre de fourniture d'Electricit\E9 Verte aupr\E8s de mon fournisseur, pourquoi n'est-il pas possible de l'indiquer dans mon BILAN CARBONE\99 Personnel&nbsp;?";
+	$TEXT['citoyen_producteur_electricite'] = "Je produits chez moi de l'Electricit\E9, \E0 partir de panneaux solaires par exemple, comment puis-je prendre en compte cet \E9l\E9ment dans mon BILAN CARBONE\99 Personnel&nbsp;?";
 
 // ---------------------------------------------------------------------
 $TEXT['transport'] = "Transports";
 
-	$TEXT['voyage_perso_etranger'] = "Si je voyage à l'étranger dans un cadre personnel, mes émissions personnelles liées à ces déplacements sont-elles bien prises en compte&nbsp;?";
+	$TEXT['voyage_perso_etranger'] = "Si je voyage \E0 l'\E9tranger dans un cadre personnel, mes \E9missions personnelles li\E9es \E0 ces d\E9placements sont-elles bien prises en compte&nbsp;?";
 
 // ---------------------------------------------------------------------
 $TEXT['alimentation'] = "Alimentation";
@@ -63,9 +63,9 @@ $TEXT['consommation'] = "Consommation";
 
 
 // ---------------------------------------------------------------------
-	$TEXT['confidentialite_statistiques'] = "Confidentialité et statistiques";
-	$TEXT['adresse_courriel_exploitable'] = "L'adresse de courriel demandée pour mon identification pourra-t-il être utilisé pour m'écrire&nbsp;?";
-	$TEXT['declaration_cnil'] = "La mise en place de ce site a-t-il fait l'objet d'une déclaration à la CNIL&nbsp;?";
-	$TEXT['possibilite_statistiques'] = "Si j'enregistre mes données, celles-ci pourront-elles faire l'objet de traitements statistiques&nbsp;?";
-	$TEXT['vindicte_populaire'] = "Si j'enregistre mes données alors que celles-ci rév&egrave;lent que mon mode de vie est fortement émetteur de gaz à effet de serre, est-ce que je risque d'être livré à la vindicte populaire&nbsp;?";
+	$TEXT['confidentialite_statistiques'] = "Confidentialit\E9 et statistiques";
+	$TEXT['adresse_courriel_exploitable'] = "L'adresse de courriel demand\E9e pour mon identification pourra-t-il \EAtre utilis\E9 pour m'\E9crire&nbsp;?";
+	$TEXT['declaration_cnil'] = "La mise en place de ce site a-t-il fait l'objet d'une d\E9claration \E0 la CNIL&nbsp;?";
+	$TEXT['possibilite_statistiques'] = "Si j'enregistre mes donn\E9es, celles-ci pourront-elles faire l'objet de traitements statistiques&nbsp;?";
+	$TEXT['vindicte_populaire'] = "Si j'enregistre mes donn\E9es alors que celles-ci r\E9v&egrave;lent que mon mode de vie est fortement \E9metteur de gaz \E0 effet de serre, est-ce que je risque d'\EAtre livr\E9 \E0 la vindicte populaire&nbsp;?";
 ?>
